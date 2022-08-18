@@ -1,5 +1,5 @@
 BLOCKCHAIN NETWORK
-<p?
+<p>
 
 The following steps will show how to setup this project using this file structure.
 <p>
