@@ -1,25 +1,28 @@
-BLOCKCHAIN NETWORK
+MULTIPLE NODE BLOCKCHAIN NETWORK
 <p>
 
-The following steps will show how to setup this project using this file structure.
+The following steps will show how to setup this project using this file structure. It will also show the steps required to
+run the multiple node blockchain network.
 <p>
-
+Note: Using Postman Desktop is required for this
+<p>
+***************************************************************************************** <p>
 SETUP
 <p>
-Open VS Code.
+1. Open VS Code.
 <p>
-Switch directories to blockchain. Type 'cd blockchain'
+2. Switch directories to blockchain. Type 'cd blockchain'
 <p>
-Open 3 terminals
+3. Open 3 terminals
 <p>
-In each terminal, open the specific node. For example, in the first terminal run: npm run node_1
+4. In each terminal, open the specific node. For example, in the first terminal run: npm run node_1
 <p>
-In the second terminal run: npm run node_2.
+5. In the second terminal run: npm run node_2.
 <p>
-In the third terminal run: npm run node_3.
+6. In the third terminal run: npm run node_3.
 <p>
 <p>
-Go to the localhost URLs:
+7. Go to the localhost URLs:
 <p>
 http://localhost:3001/blockchain
 <p>
@@ -27,11 +30,10 @@ http://localhost:3002/blockchain
 <p>
 http://localhost:3003/blockchain
 <p>  
-Open Postman
+8. Open Postman
 <p>
-Note: Using Postman Desktop is required for this.
-<p>
-	Use the following setup:
+
+9. Use the following setup:
 	<p>
 		POST: http://localhost:3001/register-and-broadcast-node
 		<p>
@@ -43,24 +45,25 @@ Note: Using Postman Desktop is required for this.
 				<p>
 			}
 			<p>
-	Then click 'Send'.
+10. Then click 'Send'.
 	<p>
 
-Change '3002' to '3003' to register that node as well.
+11. Change '3002' to '3003' to register that node as well.
 <p>
-Open or refresh the URLs of all nodes in the browser. 
+12. Open or refresh the URLs of all nodes in the browser. 
 <p>
-Check to make sure they are all registered with each other. This will be indicated by the 'networkNodes' text at the bottom.
+13. Check to make sure they are all registered with each other. This will be indicated by the 'networkNodes' text at the bottom.
 <p>
+************************************************************************************************* <p>
 MINING
 <p>
-Open a new terminal and go to localhost:3001/mine
+14. Open a new terminal and go to localhost:3001/mine
 <p>
-	Run it and check to see that each node recognizes it by hitting refresh.
+15. Run it and check to see that each node recognizes it by hitting refresh.
 	<p>
-	The mining reward should be in the Pending Transactions
+NOTE: The mining reward should be in the Pending Transactions
 	<p>
-Go to Postman and use the following criteria:
+16. Go to Postman and use the following criteria:
 <p>
 	POST: http://localhost:3002/transaction/broadcast
 	<p>
@@ -76,28 +79,28 @@ Go to Postman and use the following criteria:
 			<p>
 		}
 		<p>
-Click Send
+17. Click Send
 <p>
-Check all nodes
+18. Check all nodes
 <p>
-	All nodes should have 2 pending transactions
+NOTE:	All nodes should have 2 pending transactions
 	<p>
-Mine another block
+19. Mine another block
 <p>
-	All nodes should show the mining reward and transaction in Index 3
+NOTE:	All nodes should show the mining reward and transaction in Index 3
 	<p>
-	The new mining reward should be in the Pending Transactions
+NOTE:	The new mining reward should be in the Pending Transactions
 	<p>
-
+*********************************************************************************************** <p>
 TEST FOR CONSENSYS
 <p>
-Open a browser and a tab for each node url.
+20. Open a browser and a tab for each node url.
 <p>
-If necessary, run each node in each specific terminal.
+21. If necessary, run each node in each specific terminal.
 <p>
-If necessary, register each node on Postman. 
+22. If necessary, register each node on Postman. 
 <p>
-Enter the following data:
+23. Enter the following data:
 <p>
 	POST: http://localhost:3001/register-and-broadcast-node
 	<p>
@@ -109,12 +112,12 @@ Enter the following data:
 			<p>
 		}
 		<p>
-	Click Send.
+24. Click Send.
 	<p>
 
-Perform this step for each node that is to be registered. For example, if registering node 3003, the simply replace 3002 with 3003 in the Body of Postman and click Send.
+25. Perform this step for each node that is to be registered. For example, if registering node 3003, the simply replace 3002 with 3003 in the Body of Postman and click Send.
 <p>
-Mine blocks on all three nodes. For example:
+26. Mine blocks on all three nodes. For example:
 <p>
 localhost:3001/mine
 <p>
@@ -122,15 +125,15 @@ localhost:3002/mine (2) – meaning mine two times. To mine a second time, just 
 <p>
 localhost:3003/mine
 <p>
-Check to see if all three nodes have 5 items in them. This is one less than the times mined. 
+27. Check to see if all three nodes have 5 items in them. This is one less than the times mined. 
 <p>
-Open a new terminal to connect a 4th node to the network.
+28. Open a new terminal to connect a 4th node to the network.
 <p>
-In the VS Code terminal type: npm run node_4
+29. In the VS Code terminal type: npm run node_4
 <p>
-If it reads ‘Listening on port 3003’  then it is working.
+30. If it reads ‘Listening on port 3003’  then it is working.
 <p>
-Go to Postman and send a request for node 3004. To do this, enter this data:
+31. Go to Postman and send a request for node 3004. To do this, enter this data:
 <p>
 	POST: http://localhost:3001/register-and-broadcast-node
 	<p>
@@ -145,15 +148,16 @@ Go to Postman and send a request for node 3004. To do this, enter this data:
 	Click 'Send'.
 	<p>
 
-Check to see that it is connected to the network by going to: http://localhost:3004/blockchain
+32. Check to see that it is connected to the network by going to: http://localhost:3004/blockchain
 <p>
-At this point, node 4 will not have the correct blocks.
+NOTE: At this point, node 4 will not have the correct blocks.
 <p>
-The ‘/consensus’ end point will need to be hit in order to fix the issue.
+NOTE: The ‘/consensus’ end point will need to be hit in order to fix the issue.
 <p>
-To fix this, go to localhost:3004/consensus and run it.
+33. To fix this, go to localhost:3004/consensus and run it.
 <p>
-The chain should be replaced with the new blockchain data that is in the other nodes.
+NOTE: The chain should be replaced with the new blockchain data that is in the other nodes.
 <p>
-Go to localhost:3004/consensus and run it again. This will prompt a note stating that the chain has not been replaced. This is because there was not a need to replace this chain since it is now up to date.
+34. Go to localhost:3004/consensus and run it again. This will prompt a note stating that the chain has not been replaced. This is because there was not a need to replace this chain since it is now up to date.
 <p>
+***********************************************************************************************
