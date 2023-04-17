@@ -56,6 +56,7 @@ Blockchain.prototype.createNewTransaction = function(amount, sender, recipient) 
     return newTransaction;
 }
 
+// SIGNING THE TRANSACTION
 // class Transaction {
 //     // validate signature
 //     //will return the 256hash
